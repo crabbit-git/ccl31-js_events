@@ -1,3 +1,23 @@
 body {
   font-family: Palatino;
 }
+
+h1 {
+  margin-bottom: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 1%;
+}
+
+#reading-list {
+  padding: 0;
+  display: flex;
+}
+
+#reading-list>ul {
+  background-color: antiquewhite;
+  margin: 1%;
+}

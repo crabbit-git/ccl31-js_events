@@ -5,26 +5,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const categoryDefault = document.querySelector('#category>option[value=""]');
   categoryDefault.textContent = 'Select document type';
   const readingList = document.querySelector('#reading-list');
-
   
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    const documentWrapper = document.createElement('li');
-    readingList.appendChild(documentWrapper);
-    const submitResults = document.createElement('ul');
-    readingList.appendChild(submitResults);
+    const newDocument = document.createElement('li');
+    readingList.appendChild(newDocument);
+    const documentProperties = document.createElement('ul');
+    documentProperties.classList.add('document');
+    readingList.appendChild(documentProperties);
     
-    const bookTitle = document.createElement('li');
-    bookTitle.textContent = event.target.title.value;
-    submitResults.appendChild(bookTitle);
+    const documentTitle = document.createElement('li');
+    documentTitle.textContent = event.target.title.value;
+    documentProperties.appendChild(documentTitle);
     
-    const bookAuthor = document.createElement('li');
-    bookAuthor.textContent = event.target.author.value
-    submitResults.appendChild(bookAuthor);
+    const documentAuthor = document.createElement('li');
+    documentAuthor.textContent = event.target.author.value
+    documentProperties.appendChild(documentAuthor);
     
-    const bookCategory = document.createElement('li');
-    bookCategory.textContent = event.target.category.value
-    submitResults.appendChild(bookCategory);
+    const documentCategory = document.createElement('li');
+    documentCategory.textContent = event.target.category.value
+    documentProperties.appendChild(documentCategory);
     
     form.reset();
   };
