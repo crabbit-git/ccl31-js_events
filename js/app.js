@@ -15,14 +15,17 @@ document.addEventListener('DOMContentLoaded', () => {
     readingList.appendChild(documentProperties);
     
     const documentTitle = document.createElement('li');
+    documentTitle.classList.add('document-title');
     documentTitle.textContent = event.target.title.value;
     documentProperties.appendChild(documentTitle);
     
     const documentAuthor = document.createElement('li');
+    documentAuthor.classList.add('document-author');
     documentAuthor.textContent = event.target.author.value
     documentProperties.appendChild(documentAuthor);
     
     const documentCategory = document.createElement('li');
+    documentCategory.classList.add('document-category');
     documentCategory.textContent = event.target.category.value
     documentProperties.appendChild(documentCategory);
     
