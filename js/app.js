@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // console.log('JavaScript loaded');
-  
-  const form = document.querySelector('#new-item-form');
-  // Make the default Category selection say something different:
+
+  // Make the default Category selection in the form say something different:
   const categoryDefault = document.querySelector('#category>option[value=""]');
   categoryDefault.textContent = 'Select document type';
+
+  const form = document.querySelector('#new-item-form');
   
   const formatNewDocument = (form) => {
     const newDocument = document.createElement('li');
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
       event.target.reset();
   };
 
-  // Add the form's Save button to a "button" class...
+  // Add the form's "save" button to a "button" class...
   const saveButton = document.querySelector('input[type="submit"]');
   saveButton.classList.add('button');
   // ... and change the first letter to uppercase:
