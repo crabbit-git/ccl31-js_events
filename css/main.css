@@ -17,9 +17,13 @@ ul {
 }
 
 .document {
+  padding: 15px;
+}
+
+.document-properties {
   background-color: antiquewhite;
-  padding: 1%;
-  margin: 1%;;
+  padding: 10px;
+  /* margin: 1%;; */
 }
 
 .document-title {
@@ -29,4 +33,13 @@ ul {
 
 .document-category {
   font-style: italic;
+}
+
+.button {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+button {
+  color: red;
 }

@@ -2,49 +2,65 @@ document.addEventListener('DOMContentLoaded', () => {
   // console.log('JavaScript loaded');
   
   const form = document.querySelector('#new-item-form');
+  // Make the default Category selection say something different:
   const categoryDefault = document.querySelector('#category>option[value=""]');
   categoryDefault.textContent = 'Select document type';
-  const readingList = document.querySelector('#reading-list');
   
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
+  const formatNewDocument = (form) => {
     const newDocument = document.createElement('li');
-    readingList.appendChild(newDocument);
+    newDocument.classList.add('document');
     const documentProperties = document.createElement('ul');
-    documentProperties.classList.add('document');
-    readingList.appendChild(documentProperties);
+    documentProperties.classList.add('document-properties');
+    newDocument.appendChild(documentProperties);
     
     const documentTitle = document.createElement('li');
     documentTitle.classList.add('document-title');
-    documentTitle.textContent = event.target.title.value;
+    documentTitle.textContent = form.title.value;
     documentProperties.appendChild(documentTitle);
     
     const documentAuthor = document.createElement('li');
     documentAuthor.classList.add('document-author');
-    documentAuthor.textContent = event.target.author.value
+    documentAuthor.textContent = form.author.value
     documentProperties.appendChild(documentAuthor);
     
     const documentCategory = document.createElement('li');
     documentCategory.classList.add('document-category');
-    documentCategory.textContent = event.target.category.value
+    documentCategory.textContent = form.category.value
     documentProperties.appendChild(documentCategory);
-    
-    form.reset();
+
+    return newDocument;
   };
-  
+
+  const readingList = document.querySelector('#reading-list');
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    readingList.appendChild(
+      formatNewDocument(event.target)
+      );
+      event.target.reset();
+  };
+
+  // Add the form's Save button to a "button" class...
+  const saveButton = document.querySelector('input[type="submit"]');
+  saveButton.classList.add('button');
+  // ... and change the first letter to uppercase:
+  saveButton.value = 'Save';
+  // Submit form when Save is clicked:
   form.addEventListener('submit', handleFormSubmit);
 
-  const body = document.querySelector('body');
+  // Add a "Clear reading list" button:
   const deleteButton = document.createElement('button');
+  deleteButton.classList.add('button');
   deleteButton.textContent = 'Clear reading list';
-  body.appendChild(deleteButton);
+  document.querySelector('body').appendChild(deleteButton);
 
   const handleDeleteAll = () => {
     while (readingList.lastChild) {
       readingList.removeChild(readingList.lastChild);
     }
   };
-
+  
   deleteButton.addEventListener('click', handleDeleteAll);
 
 });
